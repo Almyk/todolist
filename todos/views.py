@@ -16,6 +16,7 @@ def details(request, id):
     context = {
             'todo':todo
     }
+    return render(request, 'details.html', context)
 
 def add(request):
     if(request.method == 'POST'):

@@ -25,7 +25,7 @@ SECRET_KEY = '^5zu6ms!&==fj#yzerjcc&2j_iu3q!pi3di*o9791z+47y_$fi'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['52.79.161.1']
+ALLOWED_HOSTS = ['52.79.161.1', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -81,7 +81,8 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'enkelt',
         'HOST': '',
-        'PORT': ''
+        'PORT': '',
+        'OPTIONS': {'charset': 'utf8mb4'}
     }
 }
 
@@ -108,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en_US.UTF-8'
 
 TIME_ZONE = 'UTC'
 
