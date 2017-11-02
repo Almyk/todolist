@@ -2,7 +2,9 @@
 <ul>
     {% for todo in todos %}
     {% csrf_token %}
-    <li><a href="/todos/details/{{todo.id}}">{{todo.title}}</a>: {{todo.text}} </li>
+    <li><a href="/todos/details/{{todo.id}}">{{todo.title}}</a>: {{todo.text}}
+    &emsp;<a href="/todos/delete/{{todo.id}}">(Delete)</a>
+    </li>
     {% endfor %}
 </ul>
 {% include 'partials/footer.html' %}

@@ -4,9 +4,13 @@ from .models import Todo
 
 # Create your views here.
 def index(request):
+    
+    # to delete todos
+    # need to implement
+
     todos = Todo.objects.all()[:10]
     context = {
-            'todos':todos
+        'todos':todos
     }
     return render(request, 'index.html', context)
 
@@ -29,3 +33,8 @@ def add(request):
         return redirect('/todos')
     else:
         return render(request, 'add.html')
+
+def delete(request, id):
+    todo = Todo.objects.get(id=id)
+    todo.delete()
+    return redirect('/todos')
