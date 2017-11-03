@@ -4,5 +4,5 @@ from .views import home, register
 
 urlpatterns = [
     url(r'^$', home),
-    url(r'^register/$', register),
+    url(r'^register/', register),
 ]

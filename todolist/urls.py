@@ -21,7 +21,7 @@ from django.views.generic.base import RedirectView
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    url(r'^$', include('mysite.urls')),
+    url(r'^', include('mysite.urls')),
     #url(r'^$', RedirectView.as_view(url='todos/')),
     url(r'^todos/', include('todos.urls')),
     url(r'^login/', auth_views.login, name='login'),
