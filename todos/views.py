@@ -5,14 +5,11 @@ from .models import Todo
 # Create your views here.
 def index(request):
     
-    # to delete todos
-    # need to implement
-
     todos = Todo.objects.all()[:10]
     context = {
         'todos':todos
     }
-    return render(request, 'index.html', context)
+    return render(request, 'todos/index.html', context)
 
 def details(request, id):
     todo = Todo.objects.get(id=id)
@@ -20,7 +17,7 @@ def details(request, id):
     context = {
             'todo':todo
     }
-    return render(request, 'details.html', context)
+    return render(request, 'todos/details.html', context)
 
 def add(request):
     if(request.method == 'POST'):
@@ -32,7 +29,7 @@ def add(request):
 
         return redirect('/todos')
     else:
-        return render(request, 'add.html')
+        return render(request, 'todos/add.html')
 
 def delete(request, id):
     todo = Todo.objects.get(id=id)

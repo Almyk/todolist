@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['almyk.release.cool', '52.79.161.1', 'localhost', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'mysite.apps.MysiteConfig',
     'todos.apps.TodosConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'todolist.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['./templates',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -105,6 +106,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGIN_REDIRECT_URL = '/'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
@@ -122,8 +125,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
-DEBUG = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT =  os.path.join(BASE_DIR, "static")
