@@ -9,6 +9,8 @@
     <body>
         <header>
             <h1>TodoList</h1>
+            {% if user.is_authenticated %}
             <a href="/todos/add">Add Todo</a>
+            {% endif %}
             <hr>
         </header>

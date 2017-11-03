@@ -1,4 +1,6 @@
 {% include 'partials/header.html' %}
+
+{% if user.is_authenticated %}
 <ul>
     {% load static %}
     {% for todo in todos %}
@@ -8,4 +10,9 @@
     </li>
     {% endfor %}
 </ul>
+{% else %}
+<p>Please login to see this section</p>
+{% endif %}
+
+<p><a href="/">Home</a></p>
 {% include 'partials/footer.html' %}

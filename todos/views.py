@@ -20,18 +20,24 @@ def details(request, id):
     return render(request, 'todos/details.html', context)
 
 def add(request):
-    if(request.method == 'POST'):
-        title = request.POST['title']
-        text = request.POST['text']
-
-        todo = Todo(title=title, text=text)
-        todo.save()
-
-        return redirect('/todos')
+    if request.user.is_authenticated():
+        if(request.method == 'POST'):
+            title = request.POST['title']
+            text = request.POST['text']
+    
+            todo = Todo(title=title, text=text)
+            todo.save()
+    
+            return redirect('/todos')
+        else:
+            return render(request, 'todos/add.html')
     else:
-        return render(request, 'todos/add.html')
+        return redirect('/')
 
 def delete(request, id):
-    todo = Todo.objects.get(id=id)
-    todo.delete()
-    return redirect('/todos')
+    if request.user.is_authenticated():
+        todo = Todo.objects.get(id=id)
+        todo.delete()
+        return redirect('/todos')
+    else:
+        return redirect('/')
