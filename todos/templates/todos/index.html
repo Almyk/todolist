@@ -6,7 +6,7 @@
     {% for todo in todos %}
     {% csrf_token %}
     <li><a href="/todos/details/{{todo.id}}">{{todo.title}}</a>: {{todo.text}}
-        &emsp;<a href="/todos/delete/{{todo.id}}"><img src="{% static "icons/trashbin.jpg" %}" alt="(Delete)" style="width:30px;height:30px;"></a>
+        &emsp;<a href="/todos/delete/{{todo.id}}"><img src="{% static "icons/trashbin2.png" %}" alt="(Delete)" style="width:30px;height:30px;"></a>
     </li>
     {% endfor %}
 </ul>
