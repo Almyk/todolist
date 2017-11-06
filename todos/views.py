@@ -38,7 +38,8 @@ def add(request):
 def delete(request, id):
     if request.user.is_authenticated():
         todo = Todo.objects.get(id=id)
-        todo.delete()
+        if todo.owner == request.user:
+            todo.delete()
         return redirect('/todos')
     else:
         return redirect('/')
