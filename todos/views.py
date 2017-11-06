@@ -5,7 +5,7 @@ from .models import Todo
 # Create your views here.
 def index(request):
     
-    todos = Todo.objects.all()[:10]
+    todos = Todo.objects.filter(owner=request.user)[:10]
     context = {
         'todos':todos
     }
@@ -24,8 +24,9 @@ def add(request):
         if(request.method == 'POST'):
             title = request.POST['title']
             text = request.POST['text']
+            owner = request.user
     
-            todo = Todo(title=title, text=text)
+            todo = Todo(title=title, text=text, owner=owner)
             todo.save()
     
             return redirect('/todos')
