@@ -7,8 +7,8 @@ from .forms import UserRegistrationForm
 
 # Create your views here.
 
-def home(request):
-    return render(request, 'mysite/home.html')
+#def home(request):
+#    return render(request, 'mysite/home.html')
 
 def register(request):
     if request.method == 'POST':

@@ -21,10 +21,11 @@ from django.views.generic.base import RedirectView
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    url(r'^', include('mysite.urls')),
-    #url(r'^$', RedirectView.as_view(url='todos/')),
+    url(r'^', include('mysite.urls')), 
+    #url(r'^$', RedirectView.as_view(url='todos/')), # no longer needed
     url(r'^todos/', include('todos.urls')),
-    url(r'^login/', auth_views.login, name='login'),
+    url(r'^$', auth_views.LoginView.as_view(template_name='mysite/home.html'), name='login'),
+    #url(r'^login/', auth_views.login, name='login'), # if you wish to use registration/login.html
     url(r'^logout/', auth_views.logout, name='logout'),
     url(r'^admin/', admin.site.urls),
 ]

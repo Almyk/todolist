@@ -12,7 +12,8 @@
     <p><a href='/todos'>TodoList</a></p>
     <p><a href="/logout">Logout</a></p>
     {% else %}
-    <p><a href="/login">Login</a></p>
+    {% include 'registration/login.html' %}
+    <!-- <p><a href="/login">Login</a></p> Isn't needed?-->
     <p><a href="/register">Register</a></p>
     {% endif %}
 </body>
