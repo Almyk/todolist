@@ -114,7 +114,7 @@ LOGIN_REDIRECT_URL = '/'
 
 LANGUAGE_CODE = 'en_US.UTF-8'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
